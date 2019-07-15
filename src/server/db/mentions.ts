@@ -6,7 +6,7 @@ import { Query } from './index'
 
 const getMentions =(userid:number)=>Query('call spUserMentions(?)', [[userid]])
 
-const getUsers=()=> Query('SELECT id, name from users')
+const getUsers=()=> Query('SELECT users.id, users.name from users')
 
 
 export default{
