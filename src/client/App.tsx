@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AddChirp from './Components/addchirp'
 import Home from "./Components/home"
 import EditButton from './Components/editchirp'
-import Mentions from './Components/mentions'
+import Users from './Components/users'
 export default class App extends React.Component<IAppProps, IAppState> {
 
     constructor(props: IAppProps) {
@@ -27,7 +27,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
                     <Route exact path="/" component={Home}></Route>
                     <Route exact path="/chirp/add" component={AddChirp}></Route>
                     <Route exact path='/chirp/edit/:id' component={EditButton}></Route>
-                    <Route exact path='/mentions'component={Mentions}></Route>
+                    <Route exact path='/mentions'component={Users}></Route>
                 </Switch>
             </Router>
 

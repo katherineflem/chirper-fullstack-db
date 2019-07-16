@@ -1,6 +1,6 @@
 //logic for get, put, delete chirps from backend 
 import { Router } from 'express'
-import db from './db'
+import db from '../db'
 
 const router = Router()
 
@@ -100,28 +100,10 @@ router.delete('/:id', async (req, res) => {
 //return all chirps a user is mentioned in 
 //parameters userid
 //result set should contain chirpid,chirp text, chirp date
-//GET ONE USERS MENTIONS
-router.get('/mentions/:userid', async (req, res)=>{
-    try{
-        let userid = req.params.userid
-        let mentions= await (db.mentions.getMentions(userid));
-        res.send(mentions)
-    }catch(e){
-        console.log(e);
-        res.sendStatus(500)
-    }
-})
+
 
 //GET ALL USERS 
-router.get('/users', async (req, res)=>{
-    try{
-        let users= await (db.mentions.getUsers())
-        res.json(users)
-        console.log(users)
-    }catch(e){
-        console.log(e)
-    }
-})
+
 
 
 

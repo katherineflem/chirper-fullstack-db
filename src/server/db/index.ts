@@ -1,7 +1,8 @@
 //index will export all tables
 import * as mysql from 'mysql'
-import Chirpsdb from './chirpsdb'
-import mentions from './mentions'
+import Chirpsdb from './queries/chirpsdb'
+import mentions from './queries/mentions'
+import users from './queries/users'
 //import table
 //create a connection to db
 //create  connection exists on mysql and returns an object
@@ -27,6 +28,7 @@ export const Query = (query: string, values?:any) => {
 //export all tables:
 export default {
     Chirpsdb,
-    mentions
+    mentions,
+    users
 
 }
