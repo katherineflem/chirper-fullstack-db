@@ -35,7 +35,7 @@ class users extends React.Component<IMentionsProps, IMentionsState>{
 
     render() {
         return (
-            <div className="container justify-content-center">
+            <div className="container justify">
                 <section className="col-md-6 justify-content-center">
                     <article className="row mt-5 justify-content-center">
                         <form className="form-group border border-success p-5 shadow">
@@ -63,7 +63,7 @@ class users extends React.Component<IMentionsProps, IMentionsState>{
                             <article key={mention.id} className="col-md-6 justify-content-center">
                                 <div className="card mt-3 shadow border-success">
                                     <div className="card-body">
-                                        <h3 className="card-title">{mention.userid}</h3>
+                                        <h3 className="card-title">{mention.author}</h3>
                                         <p className="card-text">{mention.text}</p>
                                     </div>
                                 </div>
@@ -97,6 +97,7 @@ interface IMentionsState {
     mentions: {
         chirpid: number,
         userid: number,
+        author:string,
         id:string,
         name: string,
         text: string,
