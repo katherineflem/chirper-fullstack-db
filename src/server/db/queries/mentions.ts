@@ -4,7 +4,7 @@ import { Query } from '../index'
 //procedure that returns all chirps that a user is mentioned in 
 
 
-const getMentions =(userid:number)=>Query('call spUserMentions(?)', [userid])
+const getMentions =(userid:number)=>Query('call spUserMentions(?)', [[userid]])
 
 
 

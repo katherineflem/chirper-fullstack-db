@@ -8,7 +8,7 @@ router.get('/:userid', async (req, res)=>{
     try{
         let userid = req.params.userid
         let mentions= await (db.mentions.getMentions(userid));
-        res.json(mentions)
+        res.json(mentions[0])
     }catch(e){
         console.log(e);
         res.sendStatus(500)

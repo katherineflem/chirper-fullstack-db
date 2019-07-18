@@ -6,7 +6,7 @@ class users extends React.Component<IMentionsProps, IMentionsState>{
         this.state = {
             users: [],
             selectedUserId: '',
-            mentions: []
+            mentions: [],
         }
     }
     //mentions needs to know the users ID 
@@ -21,12 +21,13 @@ class users extends React.Component<IMentionsProps, IMentionsState>{
         }
     }
     async getUserMentions(e: React.MouseEvent<HTMLButtonElement>) {
-        e.preventDefault()
+        e.preventDefault();
         try {
             let r = await fetch(`/api/mentions/${this.state.selectedUserId}`)
             console.log(this.state.selectedUserId)
             let mentions = await r.json();
-            this.setState({ mentions })
+            this.setState( {mentions} )
+            console.log(this.state.mentions)
         } catch (e) {
             console.log(e)
         }
@@ -34,7 +35,7 @@ class users extends React.Component<IMentionsProps, IMentionsState>{
 
     render() {
         return (
-            <div className="container">
+            <div className="container justify-content-center">
                 <section className="col-md-6 justify-content-center">
                     <article className="row mt-5 justify-content-center">
                         <form className="form-group border border-success p-5 shadow">
@@ -56,13 +57,14 @@ class users extends React.Component<IMentionsProps, IMentionsState>{
                         </form>
                     </article>
                 </section>
-                <section className="row">
+                <section className="row justify-content-center">
                     {this.state.mentions.map(mention =>{
                         return(
-                            <article key={mention.id} className="col-md-6">
+                            <article key={mention.id} className="col-md-6 justify-content-center">
                                 <div className="card mt-3 shadow border-success">
                                     <div className="card-body">
-                                        <h3 className="card-title">{mention.name}</h3>
+                                        <h3 className="card-title">{mention.userid}</h3>
+                                        <p className="card-text">{mention.text}</p>
                                     </div>
                                 </div>
                             </article>
@@ -91,14 +93,16 @@ interface IMentionsProps {
 
 interface IMentionsState {
     selectedUserId: string,
+
     mentions: {
         chirpid: number,
         userid: number,
-        id:number,
+        id:string,
         name: string,
         text: string,
         location: string
-    }[]
+    }[],
+
     users: {
         id: number,
         name: string
